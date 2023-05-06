@@ -4,3 +4,4 @@ streamlit==1.21.0
 streamlit_option_menu==0.3.2
 scikit-learn
 xgboost
+sklearn.utils._bunch
