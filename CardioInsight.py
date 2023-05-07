@@ -77,9 +77,11 @@ if selected == "Heart":
     if export_as_pdf:
         pdf = FPDF()
         pdf.add_page()
-        pdf.set_font('Arial', 'B', 25)
+        pdf.set_font('Times', 'B', 25)
+        pdf.set_text_color(0,128, 0)
         pdf.cell(200, 30, txt="Heart Diagnose", ln=1, align='C')
-        pdf.set_font('Arial', '', 16)
+        pdf.set_font('Arial', '', 12)
+        pdf.set_text_color(0, 0, 0)
         pdf.cell(40, 10, "Cholesterol : "+str(f1), ln=1)
         pdf.cell(40, 10, "MaxHR : "+str(f2), ln=1)
         pdf.cell(40, 10, "Oldpeak : "+str(f3), ln=1)
@@ -87,10 +89,12 @@ if selected == "Heart":
         pdf.cell(40, 10, "ExerciseAngina : "+str(f5), ln=1)
         pdf.cell(40, 10, "Age : "+str(f6), ln=1)
         pdf.cell(40, 10, "ST_Slope : "+str(f7), ln=1)
+        pdf.set_font('Times', 'B', 18)
+        pdf.set_text_color(0, 0, 128)
         if prediction == 0:
-            pdf.cell(150,30,"Your heart is safe", ln=1, align='C')   
+            pdf.cell(200,30,"Your heart is safe", ln=1, align='C')   
         else:
-            pdf.cell(150,30,"Your heart is in danger", ln=1, align='C')   
+            pdf.cell(200,30,"Your heart is in danger", ln=1, align='C')   
 
         html = create_download_link(pdf.output(dest="S").encode("latin-1"), "test")
 
@@ -148,9 +152,11 @@ if selected == "Diabetes":
     if export_as_pdf:
         pdf = FPDF()
         pdf.add_page()
-        pdf.set_font('Arial', 'B', 25)
+        pdf.set_text_color(0,128, 0)
+        pdf.set_font('Times', 'B', 25)
         pdf.cell(200, 30, txt="Diabetes Diagnose", ln=1, align='C')
-        pdf.set_font('Arial', '', 16)
+        pdf.set_font('Arial', '', 12)
+        pdf.set_text_color(0,0, 0)
         pdf.cell(40, 10, "Insulin : "+str(f1), ln=1)
         pdf.cell(40, 10, "Glucose : "+str(f2), ln=1)
         pdf.cell(40, 10, "Age : "+str(f3), ln=1)
@@ -158,10 +164,12 @@ if selected == "Diabetes":
         pdf.cell(40, 10, "BMI : "+str(f5), ln=1)
         pdf.cell(40, 10, "Skin Thickness : "+str(f6), ln=1)
         pdf.cell(40, 10, "Diabetes Pedegree Function : "+str(f7), ln=1)
+        pdf.set_font('Times', 'B', 18)
+        pdf.set_text_color(0, 0, 128)
         if prediction == 0:
-            pdf.cell(150,30,"You are safe from Diabetes!! ", ln=1, align='C')   
+            pdf.cell(200,30,"You are safe from Diabetes!! ", ln=1, align='C')   
         else:
-            pdf.cell(150,30,"You seem to have Diabetes..", ln=1, align='C')   
+            pdf.cell(200,30,"You seem to have Diabetes..", ln=1, align='C')   
 
         html = create_download_link(pdf.output(dest="S").encode("latin-1"), "test")
 
@@ -226,9 +234,11 @@ if selected == "Lung Cancer":
     if export_as_pdf:
         pdf = FPDF()
         pdf.add_page()
-        pdf.set_font('Arial', 'B', 25)
+        pdf.set_text_color(255, 200, 0)
+        pdf.set_font('Times', 'B', 25)
         pdf.cell(200, 30, txt="Lung Cancer Diagnose", ln=1, align='C')
-        pdf.set_font('Arial', '', 16)
+        pdf.set_font('Arial', '', 12)
+        pdf.set_text_color(0,0, 0)
         pdf.cell(40, 10, "Coughing of Blood : "+str(f1), ln=1)
         pdf.cell(40, 10, "Alcohol Use : "+str(f2), ln=1)
         pdf.cell(40, 10, "Passive Smoker : "+str(f3), ln=1)
@@ -236,6 +246,8 @@ if selected == "Lung Cancer":
         pdf.cell(40, 10, "Smoking : "+str(f5), ln=1)
         pdf.cell(40, 10, "Balanced Diet : "+str(f6), ln=1)
         pdf.cell(40, 10, "Chest Pain : "+str(f7), ln=1)
+        pdf.set_font('Times', 'B', 18)
+        pdf.set_text_color(0, 0, 128)
         if prediction == 0:
             pdf.cell(200,30,"You are having HIGH chances of having cancer", ln=1, align='C')    
         elif prediction == 1:
