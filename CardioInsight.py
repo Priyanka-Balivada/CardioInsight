@@ -70,6 +70,8 @@ if selected == "Heart":
         else:
             st.markdown(danger_html,unsafe_allow_html=True)
 
+    advice=st.text_input("Advice");
+
     st.write();
 
     export_as_pdf = st.button("Export Report")
@@ -95,6 +97,10 @@ if selected == "Heart":
             pdf.cell(200,30,"Your heart is safe", ln=1, align='C')   
         else:
             pdf.cell(200,30,"Your heart is in danger", ln=1, align='C')   
+
+        pdf.set_font('Arial', '', 12)
+        pdf.set_text_color(0,0, 0)
+        pdf.cell(40, 10, "Advice : "+advice, ln=1)
 
         html = create_download_link(pdf.output(dest="S").encode("latin-1"), "test")
 
@@ -144,6 +150,8 @@ if selected == "Diabetes":
             st.markdown(safe_html,unsafe_allow_html=True)   
         else:
             st.markdown(danger_html,unsafe_allow_html=True)
+    
+    advice=st.text_input("Advice");
 
     st.write();
 
@@ -170,6 +178,10 @@ if selected == "Diabetes":
             pdf.cell(200,30,"You are safe from Diabetes!! ", ln=1, align='C')   
         else:
             pdf.cell(200,30,"You seem to have Diabetes..", ln=1, align='C')   
+
+        pdf.set_font('Arial', '', 12)
+        pdf.set_text_color(0,0, 0)
+        pdf.cell(40, 10, "Advice : "+advice, ln=1)
 
         html = create_download_link(pdf.output(dest="S").encode("latin-1"), "test")
 
@@ -226,6 +238,8 @@ if selected == "Lung Cancer":
             st.markdown(lvl0_html,unsafe_allow_html=True)
         else:
             st.markdown(lvl1_html, unsafe_allow_html=True)
+    
+    advice=st.text_input("Advice");
 
     st.write();
 
@@ -254,6 +268,11 @@ if selected == "Lung Cancer":
             pdf.cell(200,30,"You are having LOW chances of having cancer", ln=1, align='C') 
         else:
             pdf.cell(200,30,"You are having MEDIUM chances of having cancer", ln=1, align='C')   
+        
+        pdf.set_font('Arial', '', 12)
+        pdf.set_text_color(0,0, 0)
+        pdf.cell(40, 10, "Advice : "+advice, ln=1)
+
 
         html = create_download_link(pdf.output(dest="S").encode("latin-1"), "test")
 
